@@ -1,0 +1,23 @@
+<div class="row">
+	<div class="col-md-6 offset-md-3">
+
+		<div class="card">
+			<span class="card-header">Add TODO</span>
+			<div class="card-body">
+				<form [formGroup]="todoForm">
+					<div class="form-group">
+						<label class="center-block">Title:
+							<input class="form-control" formControlName="title">
+						</label>
+					</div>
+					<button [disabled]="!todoForm.valid" (click)="add()" class="btn btn-success">Add</button>
+					<a routerLink="/list" class="btn btn-primary">List</a>
+				</form>
+			</div>
+		</div>
+
+		<!-- <p>Form value: {{ todoForm.value | json }}</p>
+		<p>Form value: {{ todoForm.status | json }}</p> -->
+
+	</div>
+</div>

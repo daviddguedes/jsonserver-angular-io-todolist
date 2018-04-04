@@ -1,0 +1,45 @@
+<div class="row">
+	<div class="col-md-6 offset-md-3">
+		<div class="card">
+			<span class="card-header">List TODOS</span>
+			<div class="card-body">
+				<ul class="list-group">
+					<li *ngFor="let todo of todos" class="list-group-item">
+						<div class="row">
+							<div class="col-md-8">
+								<span>{{ todo.title }}</span>
+							</div>
+							<div class="col-md-4">
+								<button type="button" (click)="editTodo(todo)" class="btn btn-link">Edit</button>
+								<button type="button" (click)="deleteTodo(todo.id)" class="btn btn-link">Delete</button>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<ng-template #content let-c="close" let-d="dismiss">
+	<div class="modal-header">
+		<h4 class="modal-title">Update TODO</h4>
+		<button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+			<span aria-hidden="true">&times;</span>
+		</button>
+	</div>
+	<div class="modal-body">
+		<div class="row">
+			<div class="col-md-12">
+				<form [formGroup]="updateForm">
+					<div class="form-group">
+						<label class="center-block">Title:
+							<input class="form-control" formControlName="title">
+						</label>
+					</div>
+					<button [disabled]="!updateForm.valid" (click)="updateTodo(todo)" class="btn btn-warning">Update</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</ng-template>
