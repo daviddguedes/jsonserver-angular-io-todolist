@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 
 @Injectable()
 export class TodoService {
-  private _API_UR: string = environment.endpoint;
+  private _API_URL: string = environment.endpoint;
 
   constructor(private _http: HttpClient) {}
 
